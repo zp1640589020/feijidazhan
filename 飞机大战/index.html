@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="css/style.css" />
+		<meta charset="utf-8" />
+		<title></title>
+	 <style>
+	 	.wanjia{
+	 		width:100px;
+	 		height: 100px;
+	 		background:url(img/me.png);
+	 		background-size: cover;
+	 		position: absolute;
+	 		left:700px;bottom: 0;
+	 	}
+	 	 .zidantou{
+				width: 10px;
+				height:10px;
+				background:url(img/bullet.png);
+				position: absolute;
+			}
+		        
+		.dffj {
+			width: 70px;
+			height: 92px;
+			position: absolute;
+			left: 0;
+			top: 0;
+			background: url(img/plain2.png);
+		}
+		.one {
+			width: 59px;
+			height: 36px;
+			position: absolute;
+			left: 0;
+			top: 0;
+			background: url(img/plain1.png);
+		}
+		.two {
+			width: 70px;
+			height: 92px;
+			position: absolute;
+			left: 0;
+			top: 0;
+			background: url(img/plain2.png);
+		}
+		.san {
+			width: 165px;
+			height:256px;
+			position: absolute;
+			left: 0;
+			top: 0;
+			background: url(img/plain3.png);
+		}
+	 </style>
+	</head>
+	<body>
+		<div id="box">
+		</div>
+	</body>
+</html>
+<script src="js/jquery-1.11.1.js" ></script>
+<script src="js/youxibeijing.js"  ></script>
+<script src="js/diji.js"></script>
+<script>
+	yxbj.start()
+	var fj=new feiji()
+	fj.kongzhi()
+	fj.move()
+	
+</script>
