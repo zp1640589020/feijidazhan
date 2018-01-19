@@ -62,10 +62,16 @@
 <script src="js/jquery-1.11.1.js" ></script>
 <script src="js/youxibeijing.js"  ></script>
 <script src="js/diji.js"></script>
+<script src="js/common.js"></script>
+<script src="js/pengzhuang.js" ></script>
+<script src="js/point.js"></script>
 <script>
 	yxbj.start()
 	var fj=new feiji()
 	fj.kongzhi()
-	fj.move()
-	
+	//fj.move()
+	te.touchListen()
+    setInterval(function(){
+    	new Point()
+    },1000)
 </script>

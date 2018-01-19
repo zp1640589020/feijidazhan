@@ -1,3 +1,4 @@
+//背景的动态
 var yxbj={
 	ele:$("#box"),
 	start:function(){
@@ -9,13 +10,21 @@ var yxbj={
 		
 	}
 }
+//全局变量
+var wtcc={
+	zdcc:{len:0},
+	djcc:{len:0}
+}
+//自己控制的飞机
 function feiji(){
 	this.ele=$("<div></div>")
 	this.ele.addClass("wanjia")
 	this.ele.appendTo("#box")
 }
+//控制的方法
 feiji.prototype.kongzhi=function(){
 	var self=this
+	//键盘控制
 	 $(document).keydown(function(e){
 	 	switch(e.keyCode)
 	 	{
@@ -25,6 +34,7 @@ feiji.prototype.kongzhi=function(){
 	 		case 39:self.ele.css({left: parseInt(self.ele.css("left"))+10});break;
 	 	}
 })
+	 //鼠标控制方法
 	this.ele.mousedown(function(e){
 		var X=e.offsetX
 		var Y=e.offsetY
@@ -43,15 +53,17 @@ feiji.prototype.kongzhi=function(){
 		})
 	})
 }
-feiji.prototype.move=function(){
+//创建子弹
+feiji.prototype.move=function(x,y){
+
+     //创建子弹
     setInterval(function(){
-    	var zidan=$("<div></div>")
-    	zidan.addClass("zidantou")
-    	zidan.css({"top":parseInt($(".wanjia").css("top")),
-    	           "left":parseInt($(".wanjia").css("left"))+parseInt($(".wanjia").css("width"))-55})
-    	$("#box").append(zidan)
+    	
     	zidan.animate({"top":0},1000,function(){
-    		this.remove() 	
+    		this.remove()
+    		//定义全局变量
+	     this.id="a"+wtcc.zdcc.len++
+	     wtcc.zdcc[this.id]=this
     	})
     },100)
 }
