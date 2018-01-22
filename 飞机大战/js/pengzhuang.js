@@ -10,7 +10,7 @@ var te={
 			}
 			
 			var z=zdcc[k]//1颗子弹
-			
+			//console.log(z)
 			//遍历所有敌机
 			for(var j in djcc){
 				if(j=="len"){
@@ -18,11 +18,13 @@ var te={
 				}
 				
 				var d=djcc[j]//1个敌机
-				console.log(z)
+				
+				//console.log(d)
 				//判断子弹是否和敌机碰撞
-				if(isTouch(z.zidan,d)){
+				if(isTouch(z.zidan,d.ele)){
 					d.looseBlood() //敌机掉血
-					
+					//console.log("这是子弹"+z.zidan)
+					z.boom()      //子弹爆炸
 				}
 			}
 		}
@@ -32,8 +34,9 @@ var te={
 	touchListen: function() {
 		var self = this
 		setInterval(function() {
-			self.sfdzdj()
-		}, 3000)
+			self.sfdzdj() 
+			
+		}, 30)
 		
     }
     
