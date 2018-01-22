@@ -13,10 +13,13 @@ var yxbj={
 //全局变量
 var wtcc={
 	zdcc:{len:0},
-	djcc:{len:0}
+	djcc:{len:0},
+	wjcc:{len:0}
 }
 //自己控制的飞机
 function feiji(){
+	this.id="e"+wtcc.wjcc.len++
+	wtcc.wjcc[this.id]=this
 	this.ele=$("<div></div>")
 	this.ele.addClass("wanjia")
 	this.ele.appendTo("#box")
@@ -53,21 +56,45 @@ feiji.prototype.kongzhi=function(){
 		})
 	})
 }
-//创建子弹
-feiji.prototype.move=function(x,y){
-
-     //创建子弹
-    setInterval(function(){
-    	
-    	zidan.animate({"top":0},1000,function(){
-    		this.remove()
-    		//定义全局变量
-	     this.id="a"+wtcc.zdcc.len++
-	     wtcc.zdcc[this.id]=this
-    	})
-    },100)
+//飞机爆炸
+feiji.prototype.fei=function(){
+	var self=this
+	var arr=[
+	 "url(img/me_die1.png)",
+	 "url(img/me_die2.png)",
+	 "url(img/me_die3.png)",
+	 "url(img/me_die4.png)"
+  ]
+	var i =0
+	self.ele.stop()
+	var time=setInterval(function(){
+		self.ele.css({"background":arr[i++]})
+		self.ele.css({
+			width:40,
+			height:43
+		})
+		if(i>=arr.length){
+			clearInterval(time)
+			self.ele.remove()
+		}
+	},100)
+	delete wtcc.wjcc[this.id]
 }
-
-	
+//创建子弹
+//feiji.prototype.move=function(x,y){
+//
+//   //创建子弹
+//  setInterval(function(){
+//  	
+////  	zidan.animate({"top":0},1000,function(){
+////  		this.remove()
+//  		//定义全局变量
+////	     this.id="a"+wtcc.zdcc.len++
+////	     wtcc.zdcc[this.id]=this
+//  	})
+//  },100)
+//}
+//
+//	
 
 

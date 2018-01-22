@@ -14,16 +14,38 @@ function diji(){
 	//随机各种不同的飞机
 	var sjfj =Math.random() *0.9+0.1;
 	if(sjfj>0.5){
+	  this.score = 1
 	  this.ele.addClass("one")
 	  this.xueliang=1
+	  this.swtp=[
+	   "url(img/plain1_die1.png)",
+		"url(img/plain1_die2.png)",
+		"url(img/plain1_die3.png)"
+	  ]
 	  var ds=5000;
 	}else if(sjfj>0.3){
+	  this.score = 2
 	  this.ele.addClass("two")
 	  this.xueliang=2
+	  this.swtp=[
+	   	"url(img/plain2_die1.png)",
+		"url(img/plain2_die2.png)",
+		"url(img/plain2_die3.png)",
+		"url(img/plain2_die4.png)"
+	  ]
 	  var ds=8000;
 	}else{
+	  this.score = 3
 	  this.ele.addClass("san")
 	  this.xueliang=3
+	  this.swtp=[
+	   	"url(img/plain3_die1.png)",
+		"url(img/plain3_die2.png)",
+		"url(img/plain3_die3.png)",
+		"url(img/plain3_die4.png)",
+		"url(img/plain3_die5.png)",
+		"url(img/plain3_die6.png)"
+	  ]
 	  var ds=10000;
 	}
       this.move(ds)
@@ -45,7 +67,15 @@ diji.prototype.looseBlood=function(){
 	var self=this
 	this.xueliang--
 	if(this.xueliang<=0){
-		self.ele.remove()
+	score.addScore(this.score)
+	  var i=0
+	  var time =setInterval(function(){
+	  	self.ele.css("background",self.swtp[i++])
+	  	if(i>=self.swtp.length){
+	  		clearInterval(time)
+	  		self.ele.remove()
+	  	}
+	  },100)
 		delete wtcc.djcc[this.id]
 	}
 }

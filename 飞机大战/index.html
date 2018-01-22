@@ -52,11 +52,23 @@
 			top: 0;
 			background: url(img/plain3.png);
 		}
+        .fenshu{
+        	width:100px;
+        	height:50px;
+        	border: 1px solid red;
+        	position: fixed;
+        	top:0px;left:0px;
+        	font-size:30px;
+        	line-height: 50px;
+        	color:#123456;
+        	text-align: center;
+        }
 	 </style>
 	</head>
 	<body>
 		<div id="box">
 		</div>
+        <div class="fenshu"></div>
 	</body>
 </html>
 <script src="js/jquery-1.11.1.js" ></script>
@@ -65,12 +77,14 @@
 <script src="js/common.js"></script>
 <script src="js/pengzhuang.js" ></script>
 <script src="js/point.js"></script>
+<script src="js/Score.js"></script>
+<script src="js/youxijieshu.js" ></script>
 <script>
 	yxbj.start()
 	var fj=new feiji()
 	fj.kongzhi()
-	//fj.move()
 	te.touchListen()
+	yxjs.touchListen()
     setInterval(function(){
     	new Point()
     },1000)
