@@ -44,8 +44,8 @@ feiji.prototype.kongzhi=function(){
 		$("#box").mousemove(function(e){
 				ex=e.clientX -X,
 				ey=e.clientY -Y
-					if(ex<0){ex=0}else if(ex>1500){ex=1500}
-					if(ey<0){ey=0}else if(ey>680){ey=680}
+					if(ex<0){ex=0}else if(ex>1900){ex=1900}
+					if(ey<0){ey=0}else if(ey>880){ey=880}
 					self.ele.css({
 						left:ex,
 						top:ey
